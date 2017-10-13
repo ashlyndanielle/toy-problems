@@ -31,7 +31,18 @@ class FilterObject extends Component {
       userInput: value
     })
   }
-  filterThings = input => {}
+  filterPeople = property => {
+    var filteredArray = [];
+    var people = this.state.unfilteredArray;
+    for (let x = 0; x < people.length; x++){
+      if (people[x].hasOwnProperty(property)){
+        filteredArray.push(people[x])
+      }
+    }
+    this.setState({
+      filteredArray: filteredArray
+    })
+  }
 
   render() {
     return (
@@ -43,8 +54,8 @@ class FilterObject extends Component {
           onChange={ e => this.handleInput(e.target.value) }
           value={this.state.userInput}
         />
-        <button className="confirmationButton" onClick={ this.filterThings(this.state.userInput) } >Filter</button>
-        <span className="resultsBox filterObjectRB">{ this.state.filteredArray }</span>
+        <button className="confirmationButton" onClick={ () => this.filterPeople(this.state.userInput) } >Filter</button>
+        <span className="resultsBox filterObjectRB">{ JSON.stringify(this.state.filteredArray, null, 10) }</span>
       </div>
     );
   }
