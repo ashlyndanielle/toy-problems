@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class FilterString extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       groceryList: ['tempeh', 'apples', 'bananas', 'tofu', 'tahini', 'pasta', 'pasta sauce', 'protein powder', 'eggs', 'pancakes'],
       userInput: '',
